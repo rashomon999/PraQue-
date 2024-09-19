@@ -1,0 +1,92 @@
+package ui;
+
+import control.ChestSystemController;
+import java.util.Scanner;
+
+public class ChestSystem {
+
+    private Scanner reader; // Scanner Attribute
+    private ChestSystemController control; // Relations with Controller
+
+
+    public static void main (String[]args){
+
+        ChestSystem exe = new ChestSystem();
+        exe.menu();
+
+    }
+
+    public ChestSystem(){
+
+        reader = new Scanner(System.in);
+        control = new ChestSystemController();
+    }
+
+    /**
+     * Description: This is the main Menu.
+     *
+     * pre: Scanner must be initialized prior.
+     */
+
+    public void menu() {
+        boolean flag = true;
+
+        do {
+
+            System.out.println("Welcome to the Chest Management Software of Stardew Valley.");
+            System.out.println("Please type The option you desire.");
+            System.out.println("1) Craft Chest");
+            System.out.println("2) List Chest");
+            System.out.println("3) Add Crop in Chest");
+            System.out.println("4) ");
+            System.out.println("5) Save Game Data");
+            System.out.println("6) Load Game Data");
+            System.out.println("0) Exit");
+
+            int option = reader.nextInt();
+
+            switch (option) {
+                case 1:
+                    break;
+                    case 2:
+
+                        break;
+
+                        case 3:
+                            break;
+                            case 4:
+                                break;
+                case 5:
+                    SaveChests();
+                    break;
+
+                    case 6:
+                        LoadChests();
+                        break;
+                case 0:
+                    flag = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid Option, Please Try Again");
+                    break;
+            }
+
+
+        } while (flag);
+
+    }
+
+    public void SaveChests(){
+
+        control.SaveChests("src/data/chests.json");
+
+    }
+
+    public void LoadChests(){
+
+        control.LoadChests("src/data/chests.json");
+
+    }
+
+}
